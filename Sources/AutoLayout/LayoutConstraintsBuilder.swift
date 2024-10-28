@@ -1,3 +1,6 @@
+/// A result builder for merging multiple ``LayoutConstraints`` into a single ``LayoutConstraints``.
+///
+/// NOTE: If two elements have the same non-nil constraint, the result will contain the constraint of the latest element.
 @resultBuilder
 public struct LayoutConstraintsBuilder {
   public static func buildBlock(_ constraints: LayoutConstraints...) -> LayoutConstraints {

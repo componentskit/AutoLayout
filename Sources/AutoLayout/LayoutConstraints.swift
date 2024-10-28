@@ -1,25 +1,35 @@
 import UIKit
 
-/// Contains constraints of the view.
+/// A structure that holds references to various layout constraints applied to a view.
+///
+/// The `LayoutConstraints` struct is used to store the constraints created by layout helper methods. Each property corresponds to a specific type of constraint that has been applied.
+///
+/// This struct allows you to easily access and manipulate specific constraints after they have been applied to a view, facilitating adjustments or deactivations as needed.
+///
+/// ```swift
+/// let constraints = myView.edges(16)
+/// constraints.top?.constant = 20  // Adjust the top constraint's constant
+/// constraints.trailing?.isActive = false  // Deactivate the trailing constraint
+/// ```
 public struct LayoutConstraints {
-  /// Top constraint.
+  /// The top edge constraint.
   public var top: NSLayoutConstraint?
-  /// Leading constraint.
+  /// The leading edge constraint.
   public var leading: NSLayoutConstraint?
-  /// Bottom constraint.
+  /// The bottom edge constraint.
   public var bottom: NSLayoutConstraint?
-  /// Trailing constraint.
+  /// The trailing edge constraint.
   public var trailing: NSLayoutConstraint?
-  /// Vertical constraint.
+  /// The vertical alignment constraint (e.g., center Y).
   public var vertical: NSLayoutConstraint?
-  /// Horizontal constraint.
+  /// The horizontal alignment constraint (e.g., center X).
   public var horizontal: NSLayoutConstraint?
-  /// Width constraint.
+  /// The width constraint.
   public var width: NSLayoutConstraint?
-  /// Height constraint.
+  /// The height constraint.
   public var height: NSLayoutConstraint?
 
-  /// Array of all constraints.
+  /// Array with all constraints.
   public var allConstraints: [NSLayoutConstraint?] {
     return [
       self.top,
@@ -54,12 +64,12 @@ public struct LayoutConstraints {
     self.height = height
   }
 
-  /// Activates existing constraints.
+  /// Activates all existing constraints.
   public func activateAll() {
     self.allConstraints.forEach { $0?.isActive = true }
   }
 
-  /// Deactivates existing constraints.
+  /// Deactivates all existing constraints.
   public func deactivateAll() {
     self.allConstraints.forEach { $0?.isActive = false }
   }
