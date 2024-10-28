@@ -29,7 +29,7 @@ extension LayoutConstraints {
       constraint
     }
   }
-  
+
   /// Merges the provided constraints with a current instance.
   ///
   /// Might be useful when grouping existing constraints with new values.
